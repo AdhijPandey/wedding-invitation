@@ -1,0 +1,581 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: #5a1728;
+  background: #fff7ed;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.wedding-app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background:
+    radial-gradient(circle at top, #fff0d7, transparent 55%),
+    #f8eadb;
+}
+
+/* COVER SCREEN */
+
+.cover-screen {
+  width: 100%;
+  max-width: 440px;
+  min-height: 780px;
+  position: relative;
+  overflow: hidden;
+  border: 8px double #d6ad55;
+  border-radius: 14px;
+  background:
+    radial-gradient(ellipse at center, #861e3d 0%, #4d1025 75%);
+  box-shadow: 0 20px 60px #4b1b2535;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+.cover-screen::before,
+.cover-screen::after {
+  content: "✿";
+  position: absolute;
+  font-size: 100px;
+  color: #e6bb69;
+  opacity: 0.55;
+}
+
+.cover-screen::before {
+  top: 5px;
+  left: 10px;
+}
+
+.cover-screen::after {
+  right: 10px;
+  bottom: 5px;
+}
+
+.cover-content {
+  text-align: center;
+  width: 100%;
+  padding: 28px 12px;
+  border: 2px solid #d9b35f;
+  outline: 1px solid #d9b35f;
+  outline-offset: 6px;
+  color: #fff0d3;
+}
+
+.cover-flowers {
+  position: absolute;
+  top: 12px;
+  color: #f4cb76;
+  font-size: 25px;
+  letter-spacing: 15px;
+}
+
+.cover-flowers.bottom {
+  top: auto;
+  bottom: 12px;
+}
+
+.ganesh-icon {
+  font-size: 48px;
+  color: #f6d88f;
+  margin-bottom: 12px;
+}
+
+.cover-subtitle {
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.cover-ornament {
+  color: #e6bd69;
+  font-size: 35px;
+  margin: 22px 0;
+}
+
+.cover-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 10vw, 58px);
+  line-height: 1.15;
+  color: #f8dda1;
+  margin: 12px 0;
+}
+
+.cover-heart {
+  color: #e8bd6c;
+  font-size: 26px;
+}
+
+.cover-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  color: #fff0d3;
+}
+
+.cover-content h2 span {
+  color: #eac36e;
+}
+
+.cover-date {
+  color: #e8c77f;
+  letter-spacing: 3px;
+  font-size: 16px;
+}
+
+.cover-elephants {
+  font-size: 38px;
+  margin: 28px 0;
+}
+
+.cover-elephants span {
+  font-size: 20px;
+  color: #e8bd6c;
+}
+
+.open-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 25px auto;
+  padding: 15px 24px;
+  border: 2px solid #edcc82;
+  border-radius: 40px;
+  background: linear-gradient(135deg, #d5a94e, #f3d991);
+  color: #56172a;
+  font-weight: 700;
+  font-size: 17px;
+  transition: 0.3s;
+}
+
+.open-button:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 25px #eac36e70;
+}
+
+.cover-footer {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #eacb87;
+  margin-top: 30px;
+}
+
+/* EVENT SCREEN */
+
+.event-screen {
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #781f36;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.music-button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #c9a04d;
+  border-radius: 50%;
+  background: #fffaf1;
+  color: #81263d;
+  display: grid;
+  place-items: center;
+}
+
+.music-button svg {
+  width: 19px;
+}
+
+.progress-container {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+}
+
+.progress-line {
+  height: 4px;
+  border-radius: 10px;
+  background: #dfd0b7;
+  flex: 1;
+  transition: 0.3s;
+}
+
+.progress-line.active {
+  background: #a52e48;
+}
+
+/* EVENT CARD */
+
+.event-card {
+  width: 100%;
+  min-height: 650px;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 15px 45px #51202a25;
+  background: #fffaf1;
+  position: relative;
+  perspective: 1000px;
+}
+
+.card-border {
+  min-height: 630px;
+  height: 100%;
+  border: 3px double var(--accent);
+  outline: 1px solid var(--accent);
+  outline-offset: -9px;
+  padding: 25px 16px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background:
+    radial-gradient(circle at 50% 45%, #ffffff, transparent 65%);
+}
+
+.event-card.green {
+  --accent: #557c46;
+  --light: #e4efd9;
+  --badge: #547b43;
+}
+
+.event-card.yellow {
+  --accent: #c18b20;
+  --light: #fff1c7;
+  --badge: #c08c22;
+}
+
+.event-card.purple {
+  --accent: #90518e;
+  --light: #f1ddf0;
+  --badge: #90518e;
+}
+
+.event-card.red {
+  --accent: #a22c42;
+  --light: #f8dfe2;
+  --badge: #a22c42;
+}
+
+.light-decoration {
+  color: var(--accent);
+  letter-spacing: 9px;
+  font-size: 19px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 8px var(--light);
+}
+
+.date-badge {
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  background: var(--badge);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 0 5px #fffaf1, 0 0 0 7px var(--accent);
+  margin: 8px 0 25px;
+}
+
+.date-badge span {
+  font-size: 13px;
+}
+
+.date-badge strong {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.date-badge small {
+  font-size: 11px;
+}
+
+.event-label {
+  color: var(--accent);
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.event-title {
+  color: var(--accent);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 8vw, 39px);
+  line-height: 1.15;
+  margin: 8px 0;
+}
+
+.ornament-divider {
+  color: var(--accent);
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+.event-details {
+  width: 100%;
+  margin: 8px 0 15px;
+  padding: 12px;
+  border-top: 1px solid var(--light);
+  border-bottom: 1px solid var(--light);
+  color: #382a24;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.detail-row svg {
+  color: var(--accent);
+}
+
+.second-event {
+  font-size: 14px;
+  margin: 8px 0 0;
+}
+
+.venue-section {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.venue-heading {
+  color: var(--accent);
+  letter-spacing: 4px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.venue-section h3 {
+  font-size: 20px;
+  margin: 8px 0 3px;
+  color: #63253a;
+}
+
+.venue-section p:not(.venue-heading) {
+  font-size: 15px;
+  margin: 4px;
+  color: #6c5146;
+}
+
+.map-button {
+  margin: 12px auto;
+  border: 1px solid var(--accent);
+  border-radius: 25px;
+  padding: 8px 17px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--accent);
+  background: white;
+  font-size: 13px;
+}
+
+.illustration {
+  font-size: 65px;
+  margin-top: 8px;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: radial-gradient(ellipse, var(--light), transparent 70%);
+  border-radius: 50%;
+}
+
+.event-description {
+  font-size: 15px;
+  color: #795f50;
+  max-width: 300px;
+  line-height: 1.5;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+/* NAVIGATION */
+
+.page-navigation {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 11px 14px;
+  border-radius: 30px;
+  border: 1px solid #a77d3a;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.nav-button.previous {
+  background: #fffaf1;
+  color: #70233a;
+}
+
+.nav-button.next {
+  background: #70233a;
+  color: #f9e1a7;
+}
+
+.nav-button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.page-indicators {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.page-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #a77d3a;
+  background: transparent;
+  padding: 0;
+}
+
+.page-dot.selected {
+  background: #8b2943;
+  transform: scale(1.25);
+}
+
+.bottom-actions button {
+  border: none;
+  background: transparent;
+  color: #76273b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.swipe-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #9b8066;
+  font-size: 12px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 480px) {
+  .wedding-app {
+    padding: 12px;
+    align-items: flex-start;
+  }
+
+  .cover-screen {
+    min-height: calc(100dvh - 24px);
+    border-radius: 12px;
+  }
+
+  .event-screen {
+    padding-top: 8px;
+  }
+
+  .event-card {
+    min-height: 620px;
+  }
+
+  .card-border {
+    min-height: 600px;
+    padding: 20px 12px;
+  }
+
+  .illustration {
+    font-size: 58px;
+  }
+
+  .event-title {
+    font-size: 32px;
+  }
+
+  .nav-button {
+    padding: 10px 11px;
+    font-size: 13px;
+  }
+}
+
+@media (max-height: 760px) and (max-width: 480px) {
+  .event-card {
+    min-height: 560px;
+  }
+
+  .card-border {
+    min-height: 540px;
+    padding: 12px;
+  }
+
+  .date-badge {
+    width: 85px;
+    height: 85px;
+    margin: 4px 0 15px;
+  }
+
+  .illustration {
+    min-height: 65px;
+  }
+
+  .event-details {
+    margin: 4px 0 8px;
+  }
+}
